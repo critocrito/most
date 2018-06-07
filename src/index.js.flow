@@ -76,6 +76,9 @@ declare export class Stream<A> {
 
   ap<B, C>(fs: Stream<(a: A) => B>): Stream<C>;
 
+  switch<B>(): Stream<B>;
+  switchLatest<B>(): Stream<B>;
+
   continueWith(f: (a: any) => Stream<A>): Stream<A>;
   concatMap<B>(f: (a: A) => Stream<B>): Stream<B>;
   mergeConcurrently<B>(concurrency: number): Stream<B>;
